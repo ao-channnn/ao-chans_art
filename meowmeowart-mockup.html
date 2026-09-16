@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Me0w Me0w Art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #eafbff;
+    --paper-deep: #b2daff;
+    --ink: #1c1d4c;
+    --marmalade: #7687f8;
+    --teal: #00799a;
+    --blush: #a8f0dd;
+    --line: #a8bac9;
+    --card-bg: #f5f5fd;
+  }
+
+  *{box-sizing:border-box;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    background-image:
+      radial-gradient(var(--paper-deep) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  a{color:inherit;}
+
+  .layout{
+    display:flex;
+    max-width:1180px;
+    margin:0 auto;
+    min-height:100vh;
+  }
+
+  /* ---- Sketchbook tab nav ---- */
+  nav.tabs{
+    width:64px;
+    flex-shrink:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:48px;
+    gap:6px;
+  }
+  nav.tabs a{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-decoration:none;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    letter-spacing:0.02em;
+    color:var(--ink);
+    background:var(--card-bg);
+    border:2px solid var(--ink);
+    border-right:none;
+    border-radius:10px 0 0 10px;
+    padding:14px 8px;
+    width:52px;
+    transition: transform 0.15s ease, background 0.15s ease, width 0.15s ease;
+  }
+  nav.tabs a:hover, nav.tabs a:focus-visible{
+    background:var(--marmalade);
+    color:#008291;
+    width:58px;
+    outline:none;
+  }
+  nav.tabs a.active{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  nav.tabs a:focus-visible{
+    box-shadow: 0 0 0 3px var(--teal);
+  }
+
+  main{
+    flex:1;
+    min-width:0;
+    padding:48px 32px 80px;
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    display:flex;
+    align-items:center;
+    gap:48px;
+    flex-wrap:wrap;
+    padding-bottom:36px;
+  }
+  .hero-text{flex:1 1 340px;}
+  .wordmark{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    line-height:1;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .wordmark .zero{color:var(--marmalade);}
+  .tagline{
+    font-size:1.15rem;
+    max-width:38ch;
+    margin:0 0 22px;
+    color:#007c87;
+  }
+  .scribble-underline{
+    display:inline-block;
+    position:relative;
+  }
+  .scribble-underline svg{
+    position:absolute;
+    left:0; bottom:-9px;
+    width:100%;
+    height:10px;
+  }
+  .by-line{
+    font-family:'Work Sans', sans-serif;
+    font-weight:500;
+    font-size:0.95rem;
+    color:var(--teal);
+  }
+
+  .hero-card{
+    flex:0 0 220px;
+    background:var(--card-bg);
+    border:2px solid var(--ink);
+    border-radius:6px;
+    padding:14px 14px 34px;
+    transform:rotate(-4deg);
+    box-shadow: 6px 6px 0 rgba(0, 108, 122, 0.597);
+    position:relative;
+  }
+  .hero-card .tape{
+    position:absolute;
+    top:-14px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    width:70px; height:26px;
+    background:rgba(74, 147, 157, 0.75);
+    border:1px solid rgba(34,32,27,0.2);
+  }
+  .hero-card svg{width:100%; height:auto; display:block;}
+  .hero-card figcaption{
+    font-family:'Baloo 2', sans-serif;
+    text-align:center;
+    margin-top:10px;
+    font-size:0.9rem;
+    color:#003172;
+  }
+
+  /* ---- Squiggle divider ---- */
+  .squiggle{
+    width:100%;
+    max-width:340px;
+    height:16px;
+    margin:8px 0 40px;
+  }
+
+  /* ---- About ---- */
+  .about{
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    padding-bottom:8px;
+  }
+  .about h2{
+    font-family:'Baloo 2', sans-serif;
+    font-size:1.7rem;
+    margin:0 0 12px;
+  }
+  .about p{
+    max-width:56ch;
+    line-height:1.65;
+    margin:0 0 14px;
+    color:#0b0070;
+  }
+  .interest-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:14px;
+  }
+  .interest-tags span{
+    font-family:'Baloo 2', sans-serif;
+    font-size:0.85rem;
+    padding:5px 12px;
+    border-radius:999px;
+    border:2px solid var(--ink);
+    background:var(--card-bg);
+  }
+  .about-art{flex:0 0 180px;}
+  .about-art svg{width:100%; height:auto;}
+
+  /* ---- Gallery wall ---- */
+  .gallery-heading{
+    font-family:'Baloo 2', sans-serif;
+    font-size:1.7rem;
+    margin:0 0 6px;
+  }
+  .gallery-sub{
+    color:#4a4638;
+    margin:0 0 28px;
+    max-width:52ch;
+  }
+  .wall{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:26px 22px;
+  }
+  .pin-card{
+    background:var(--card-bg);
+    border:2px solid var(--ink);
+    border-radius:4px;
+    padding:16px 14px 18px;
+    text-decoration:none;
+    color:var(--ink);
+    display:block;
+    position:relative;
+    transition: transform 0.18s ease;
+  }
+  .pin-card:nth-child(1){transform:rotate(-2.5deg);}
+  .pin-card:nth-child(2){transform:rotate(1.5deg);}
+  .pin-card:nth-child(3){transform:rotate(-1deg);}
+  .pin-card:nth-child(4){transform:rotate(2deg);}
+  .pin-card:nth-child(5){transform:rotate(-1.8deg);}
+  .pin-card:nth-child(6){transform:rotate(1deg);}
+  .pin-card:hover, .pin-card:focus-visible{
+    transform:rotate(0deg) scale(1.03);
+    outline:none;
+  }
+  .pin-card:focus-visible{
+    box-shadow: 0 0 0 3px var(--teal);
+  }
+  .pin-card .pin-dot{
+    position:absolute;
+    top:-9px; left:50%;
+    transform:translateX(-50%);
+    width:14px; height:14px;
+    border-radius:50%;
+    background:var(--marmalade);
+    border:2px solid var(--ink);
+  }
+  .pin-card svg{width:100%; height:90px; display:block; margin-bottom:10px;}
+  .pin-card h3{
+    font-family:'Baloo 2', sans-serif;
+    font-size:1.05rem;
+    margin:0 0 4px;
+  }
+  .pin-card p{
+    font-size:0.85rem;
+    color:#264e7e;
+    margin:0;
+  }
+
+  footer{
+    margin-top:64px;
+    padding-top:24px;
+    border-top:2px dashed var(--line);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.85rem;
+    color:#1c3a75;
+  }
+  footer svg{width:20px; height:20px;}
+
+  /* Mobile nav becomes a top row */
+  @media (max-width: 720px){
+    .layout{flex-direction:column;}
+    nav.tabs{
+      flex-direction:row;
+      width:100%;
+      padding:16px 12px;
+      overflow-x:auto;
+      gap:8px;
+    }
+    nav.tabs a{
+      writing-mode:horizontal-tb;
+      transform:none;
+      border-radius:10px;
+      border:2px solid var(--ink);
+      padding:8px 14px;
+      width:auto;
+      flex-shrink:0;
+    }
+    nav.tabs a:hover, nav.tabs a:focus-visible{width:auto;}
+    main{padding:28px 20px 60px;}
+    .hero{gap:28px;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <nav class="tabs" aria-label="Site sections">
+    <a href="#home" class="active">Home</a>
+    <a href="#exhibits">Exhibits</a>
+    <a href="#paintings">Paintings</a>
+    <a href="#sculptures">Sculptures</a>
+    <a href="#cats">Designs</a>
+    <a href="#games">Games</a>
+    <a href="#animations">Animations</a>
+  </nav>
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="wordmark">Me<span class="zero">0</span>w Me<span class="zero">0</span>w Art</h1>
+        <p class="tagline">
+          <span class="scribble-underline">Paintings, sculptures, and games</span> —
+          a sketchbook that grew into a whole website.
+        </p>
+        <div class="by-line">made by Andi A · est. January 2024</div>
+      </div>
+
+      <figure class="hero-card">
+        <div class="tape"></div>
+        <svg viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="80" cy="78" r="42" fill="#F3EFE3" stroke="#22201B" stroke-width="3"/>
+          <path d="M46 46 L58 16 L74 44 Z" fill="#E2762F" stroke="#22201B" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M114 46 L102 16 L86 44 Z" fill="#E2762F" stroke="#22201B" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="64" cy="72" r="4.5" fill="#22201B"/>
+          <circle cx="96" cy="72" r="4.5" fill="#22201B"/>
+          <path d="M72 90 Q80 96 88 90" fill="none" stroke="#22201B" stroke-width="3" stroke-linecap="round"/>
+          <path d="M52 88 L34 84 M52 92 L32 94 M108 88 L126 84 M108 92 L128 94" stroke="#22201B" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <figcaption>your latest sketch here</figcaption>
+      </figure>
+    </section>
+
+    <svg class="squiggle" viewBox="0 0 340 16" preserveAspectRatio="none">
+      <path d="M0 8 Q 15 0, 30 8 T 60 8 T 90 8 T 120 8 T 150 8 T 180 8 T 210 8 T 240 8 T 270 8 T 300 8 T 330 8"
+        fill="none" stroke="#22201B" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+
+    <section class="about" id="exhibits" aria-labelledby="about-heading">
+      <div>
+        <h2 id="about-heading">Hi, I'm Andi</h2>
+        <p>
+          I made this site because I love art. Between painting, sculpting, and doodling stuff
+        , there's usually something new going up here. I'm also into
+          manga, anime, and graphic designing — this whole site is basically where all four of those meet.
+        </p>
+        <p>
+          New here? Start with Paintings or Designs, or jump into Games if you want to play
+          something instead of just looking.
+        </p>
+        <div class="interest-tags">
+          <span>painting</span>
+          <span>sculpture</span>
+          <span>doodling</span>
+          <span>manga</span>
+          <span>anime</span>
+          <span>coding</span>
+        </div>
+      </div>
+      <div class="about-art">
+        <svg viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="140" height="180" fill="#FDFBF5" stroke="#22201B" stroke-width="3"/>
+          <path d="M40 130 Q60 60 100 90 Q120 105 110 140" fill="none" stroke="#2F7A72" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="50" cy="60" r="10" fill="#F0A8AE" stroke="#22201B" stroke-width="2"/>
+          <circle cx="90" cy="150" r="14" fill="#E2762F" stroke="#22201B" stroke-width="2"/>
+        </svg>
+      </div>
+    </section>
+
+    <svg class="squiggle" viewBox="0 0 340 16" preserveAspectRatio="none">
+      <path d="M0 8 Q 15 16, 30 8 T 60 8 T 90 8 T 120 8 T 150 8 T 180 8 T 210 8 T 240 8 T 270 8 T 300 8 T 330 8"
+        fill="none" stroke="#22201B" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+
+    <section aria-labelledby="wall-heading">
+      <h2 class="gallery-heading" id="wall-heading">The gallery wall</h2>
+      <p class="gallery-sub">Every section of the site, pinned up like a corkboard. Click one to go look around.</p>
+
+      <div class="wall">
+        <a class="pin-card" href="#paintings" id="paintings">
+          <span class="pin-dot"></span>
+          <svg viewBox="0 0 100 70"><rect x="8" y="8" width="60" height="46" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><path d="M14 46 L34 22 L46 36 L58 18 L64 46 Z" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="70" cy="52" r="14" fill="none" stroke="#22201B" stroke-width="2.5"/><circle cx="65" cy="47" r="2.5" fill="#2F7A72"/><circle cx="76" cy="47" r="2.5" fill="#F0A8AE"/><circle cx="70" cy="58" r="2.5" fill="#E2762F"/></svg>
+          <h3>Paintings</h3>
+          <p>Your painted pieces go here.</p>
+        </a>
+
+        <a class="pin-card" href="#sculptures" id="sculptures">
+          <span class="pin-dot"></span>
+          <svg viewBox="0 0 100 70"><rect x="30" y="52" width="40" height="8" fill="#22201B"/><path d="M40 52 L36 20 Q50 8 64 20 L60 52 Z" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/></svg>
+          <h3>Sculptures</h3>
+          <p>3D pieces and works in progress.</p>
+        </a>
+
+        <a class="pin-card" href="#cats" id="cats">
+          <span class="pin-dot"></span>
+          <svg viewBox="0 0 100 70"><circle cx="50" cy="42" r="24" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><path d="M30 24 L36 8 L46 22 Z" fill="#E2762F" stroke="#22201B" stroke-width="2"/><path d="M70 24 L64 8 L54 22 Z" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="41" cy="40" r="3" fill="#22201B"/><circle cx="59" cy="40" r="3" fill="#22201B"/><path d="M45 52 Q50 56 55 52" fill="none" stroke="#22201B" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3>Designs</h3>
+          <p>Where the all designs are.</p>
+        </a>
+
+        <a class="pin-card" href="#games" id="games">
+          <span class="pin-dot"></span>
+          <svg viewBox="0 0 100 70"><rect x="18" y="24" width="64" height="30" rx="12" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><circle cx="36" cy="39" r="3.5" fill="#22201B"/><circle cx="28" cy="39" r="3.5" fill="#22201B"/><rect x="30" y="35" width="4" height="8" fill="#22201B"/><circle cx="68" cy="34" r="3.5" fill="#E2762F"/><circle cx="76" cy="42" r="3.5" fill="#2F7A72"/></svg>
+          <h3>Games</h3>
+          <p>Little playable things to mess around with.</p>
+        </a>
+
+        <a class="pin-card" href="#animations" id="animations">
+          <span class="pin-dot"></span>
+          <svg viewBox="0 0 100 70"><rect x="14" y="14" width="72" height="42" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><circle cx="24" cy="24" r="3" fill="#22201B"/><circle cx="24" cy="46" r="3" fill="#22201B"/><circle cx="76" cy="24" r="3" fill="#22201B"/><circle cx="76" cy="46" r="3" fill="#22201B"/><path d="M40 26 L64 35 L40 44 Z" fill="#2F7A72" stroke="#22201B" stroke-width="2"/></svg>
+          <h3>Animations</h3>
+          <p>Moving pieces and short clips.</p>
+        </a>
+
+        <a class="pin-card" href="#exhibits">
+          <span class="pin-dot"></span>
+          <svg viewBox="0 0 100 70"><rect x="10" y="16" width="34" height="40" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><rect x="50" y="10" width="34" height="46" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><circle cx="27" cy="34" r="6" fill="#F0A8AE"/><path d="M58 40 L68 24 L78 40 Z" fill="#E2762F"/></svg>
+          <h3>Exhibits</h3>
+          <p>Featured collections and past showcases.</p>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="26" r="9" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="10" cy="12" r="4" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="20" cy="8" r="4" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="30" cy="12" r="4" fill="#E2762F" stroke="#22201B" stroke-width="2"/></svg>
+      <span>Est. January 2024 · a work in progress, like most good sketchbooks</span>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>
