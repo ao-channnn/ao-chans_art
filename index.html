@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Me0w Me0w Art</title>
+<title> ao chan's art!!!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -16,6 +16,8 @@
     --blush: #a8f0dd;
     --line: #a8bac9;
     --card-bg: #f5f5fd;
+    --green: #0b3d2e;
+    --lavender: #c9d6ff;
   }
 
   *{box-sizing:border-box;}
@@ -35,6 +37,7 @@
     background-size: 22px 22px;
   }
 
+
   a{color:inherit;}
 
   .layout{
@@ -42,21 +45,31 @@
     max-width:1180px;
     margin:0 auto;
     min-height:100vh;
+    flex-direction: column;
   }
 
   /* ---- Sketchbook tab nav ---- */
   nav.tabs{
-    width:64px;
+    width:100%;
     flex-shrink:0;
     display:flex;
-    flex-direction:column;
+    flex-direction:row;
     align-items:center;
-    padding-top:48px;
     gap:6px;
+    padding:16px 12px;
+    overflow-x:auto;
+    gap:8px;
+    writing-mode: horizontal-tb;
+    transform: none;
+    border-radius: 0 0 10px 10px;
+    padding: 8px 14px;
+    width: auto;
+    flex-shrink: 0;
   }
   nav.tabs a{
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+  writing-mode: horizontal-tb;
+  transform: none;
+  width: auto;
     text-decoration:none;
     font-family:'Baloo 2', sans-serif;
     font-weight:600;
@@ -65,16 +78,15 @@
     color:var(--ink);
     background:var(--card-bg);
     border:2px solid var(--ink);
-    border-right:none;
-    border-radius:10px 0 0 10px;
+    border-radius: 0 0 10px 10px;
     padding:14px 8px;
-    width:52px;
+    width:auto;
     transition: transform 0.15s ease, background 0.15s ease, width 0.15s ease;
   }
   nav.tabs a:hover, nav.tabs a:focus-visible{
-    background:var(--marmalade);
+    background:var(--paper-deep);
     color:#008291;
-    width:58px;
+    width:auto;
     outline:none;
   }
   nav.tabs a.active{
@@ -92,7 +104,7 @@
   }
 
   /* ---- Hero ---- */
-  .hero{
+    .hero{
     display:flex;
     align-items:center;
     gap:48px;
@@ -100,19 +112,42 @@
     padding-bottom:36px;
   }
   .hero-text{flex:1 1 340px;}
+  .wordmark-wrap{
+    display:inline-block;
+    position:relative;
+    background:var(--card-bg);
+    border:2px solid var(--ink);
+    border-radius:6px;
+    padding:8px 26px 12px;
+    transform:rotate(-2deg);
+    box-shadow: 6px 6px 0 rgba(0, 108, 122, 0.597);
+  }
+  .wordmark-wrap .tape{
+    position:absolute;
+    top:-14px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    width:70px; height:26px;
+    background:rgba(74, 147, 157, 0.75);
+    border:1px solid rgba(34,32,27,0.2);
+  }
   .wordmark{
-    font-family:'Baloo 2', sans-serif;
-    font-weight:800;
+    font-family:'Gloria Hallelujah', sans-serif;
+    font-weight:400;
     font-size:clamp(2.6rem, 6vw, 4.2rem);
     line-height:1;
     margin:0 0 14px;
     color:var(--ink);
+    text-shadow:
+      -1.5px -1.5px 0 var(--lavender),
+       1.5px -1.5px 0 var(--lavender),
+      -1.5px  1.5px 0 var(--lavender),
+       1.5px  1.5px 0 var(--lavender);
   }
   .wordmark .zero{color:var(--marmalade);}
   .tagline{
     font-size:1.15rem;
     max-width:38ch;
-    margin:0 0 22px;
+    margin:20px 0 22px;
     color:#007c87;
   }
   .scribble-underline{
@@ -289,7 +324,7 @@
     nav.tabs a{
       writing-mode:horizontal-tb;
       transform:none;
-      border-radius:10px;
+      border-radius:10px 10px 0 0;
       border:2px solid var(--ink);
       padding:8px 14px;
       width:auto;
@@ -309,7 +344,7 @@
     <a href="#exhibits">Exhibits</a>
     <a href="#paintings">Paintings</a>
     <a href="#sculptures">Sculptures</a>
-    <a href="#cats">Designs</a>
+    <a href="#designs">Designs</a>
     <a href="#games">Games</a>
     <a href="#animations">Animations</a>
   </nav>
@@ -318,12 +353,15 @@
 
     <section class="hero">
       <div class="hero-text">
-        <h1 class="wordmark">Me<span class="zero">0</span>w Me<span class="zero">0</span>w Art</h1>
+        <div class="wordmark-wrap">
+  <span class="tape"></span>
+  <h1 class="wordmark">ao chan's art!!!</h1>
+</div>
         <p class="tagline">
           <span class="scribble-underline">Paintings, sculptures, and games</span> —
           a sketchbook that grew into a whole website.
         </p>
-        <div class="by-line">made by Andi A · est. January 2024</div>
+        <div class="by-line">made by ao · est. January 2024</div>
       </div>
 
       <figure class="hero-card">
@@ -348,11 +386,11 @@
 
     <section class="about" id="exhibits" aria-labelledby="about-heading">
       <div>
-        <h2 id="about-heading">Hi, I'm Andi</h2>
+        <h2 id="about bio">Hi, I'm ao!!!!!!!</h2>
         <p>
           I made this site because I love art. Between painting, sculpting, and doodling stuff
         , there's usually something new going up here. I'm also into
-          manga, anime, and graphic designing — this whole site is basically where all four of those meet.
+          manga, anime, nintendo (specifically Tomodachi life and rhythm heaven groove),and graphic designing — this whole site is basically where all four of those meet.
         </p>
         <p>
           New here? Start with Paintings or Designs, or jump into Games if you want to play
@@ -401,7 +439,7 @@
           <p>3D pieces and works in progress.</p>
         </a>
 
-        <a class="pin-card" href="#cats" id="cats">
+        <a class="pin-card" href="#designs" id="designs">
           <span class="pin-dot"></span>
           <svg viewBox="0 0 100 70"><circle cx="50" cy="42" r="24" fill="#FDFBF5" stroke="#22201B" stroke-width="2.5"/><path d="M30 24 L36 8 L46 22 Z" fill="#E2762F" stroke="#22201B" stroke-width="2"/><path d="M70 24 L64 8 L54 22 Z" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="41" cy="40" r="3" fill="#22201B"/><circle cx="59" cy="40" r="3" fill="#22201B"/><path d="M45 52 Q50 56 55 52" fill="none" stroke="#22201B" stroke-width="2" stroke-linecap="round"/></svg>
           <h3>Designs</h3>
@@ -433,7 +471,7 @@
 
     <footer>
       <svg viewBox="0 0 40 40"><circle cx="20" cy="26" r="9" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="10" cy="12" r="4" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="20" cy="8" r="4" fill="#E2762F" stroke="#22201B" stroke-width="2"/><circle cx="30" cy="12" r="4" fill="#E2762F" stroke="#22201B" stroke-width="2"/></svg>
-      <span>Est. January 2024 · a work in progress, like most good sketchbooks</span>
+      <span>Est. January 2024 · a work in progress, like most good sketchbooks. also, here's my old website: <a href="https://sites.google.com/view/meowmeowart" target="_blank" rel="noopener noreferrer">me0w me0w art</a></span>
     </footer>
 
   </main>
