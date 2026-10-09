@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 70">
+  <g stroke="#1c1d4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tall ears, fluffy cheeks, and a rounded white face. -->
+    <path d="M12 30 L17 5 Q18 2 21 6 L32 20 Q40 17 48 20 L60 5 Q63 2 64 7 L69 30 L74 34 L69 37 L74 41 L69 44 L73 49 L68 51 L70 56 Q61 67 40 67 Q19 67 10 56 L12 51 L7 48 L12 44 L7 40 L12 37 L7 34Z" fill="#fff"/>
+    <path d="M17 9 L15 27 L21 13Z M63 9 L66 27 L59 13Z" fill="#f4bacd" stroke="none"/>
+    <ellipse cx="19" cy="48" rx="6" ry="3" fill="#f4bacd" opacity="0.65" stroke="none"/>
+    <ellipse cx="61" cy="48" rx="6" ry="3" fill="#f4bacd" opacity="0.65" stroke="none"/>
+    <!-- Round sunglasses with blue reflections. -->
+    <circle cx="25" cy="37" r="12" fill="#1c2342"/>
+    <circle cx="55" cy="37" r="12" fill="#1c2342"/>
+    <path d="M15 32 Q23 22 32 29 L15 37Z M45 32 Q53 22 62 29 L45 37Z" fill="#627cae" stroke="none"/>
+    <path d="M37 36 Q40 34 43 36" fill="none"/>
+    <!-- Happy open mouth. -->
+    <path d="M36 48 Q40 51 44 48 Q44 60 40 61 Q36 60 36 48Z" fill="#b977b2" stroke-width="1.5"/>
+    <path d="M32 47 Q36 50 40 47 Q44 50 48 47" fill="none" stroke-width="1.5"/>
+  </g>
+</svg>
